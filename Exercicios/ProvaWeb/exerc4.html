@@ -1,0 +1,76 @@
+<!--
+    4 - Utilize as imagens em anexo para as seguintes tarefas: 
+    A - Insira todas imagens em uma tabela com 2 colunas e 3 linhas. 
+    B - Quando o usuário clicar na imagem do copo de café esta imagem deve desaparecer; 
+    C - Quando o usuário clicar na imagem do crachá, ela deve ser trocada pela imagem do copo de café;
+    D - Quando o usuário clicar na imagem da lista ela deve ser trocada por um título <h6> com seu nome; 
+    E - Quando o usuário clicar na imagem da mala mostre um mensagem "Clicou na mala!"; 
+    F - Quando o usuário clicar na imagem do homem de óculos mude o background da página para vermelho, se ele clicar novamente volte para branco;
+    G - Quando o usuário clicar na imagem da TV, esconda esta imagem da sua tabela e mostre-a em uma div fixa no canto inferior direito da tela.
+
+ -->
+<body>
+ <table id= 'tabela'>
+     <tr>
+        <td><img id='cafe'   src="provaPratica/cafe.jpg" onclick= 'apertouCafe()'></td>
+        <td><img id='cracha' src="provaPratica/cracha.jpg" onclick= 'apertouCracha()'></td>
+     </tr>
+     <tr>
+        <td><img id='lista'  src="provaPratica/lista.jpg" onclick= 'apertouLista()'></td>
+        <td><img id='mala'   src="provaPratica/mala.jpg" onclick= 'apertouMala()'></td>
+    </tr>
+    <tr>
+        <td><img id='oculos' src="provaPratica/oculos.jpg" onclick= 'apertouOculos()'></td>
+        <td><img id='tv'     src="provaPratica/tv.jpg" onclick= 'apertouTv()'></td>
+    </tr>
+ </table>
+ <div id='tvDiv' style= 'position: absolute; bottom: 0; right: 0; display: none;'>
+    <img src="provaPratica/tv.jpg" onclick= 'apertouTv()'>
+ </div>
+</body>
+
+ <script>
+    function apertouCafe(){
+        var cafe = document.getElementById('cafe');
+
+        cafe.parentNode.removeChild(cafe);
+    }
+    function apertouCracha(){
+        var cracha = document.getElementById('cracha');
+
+        cracha.src = 'provaPratica/cafe.jpg';         
+    }
+    function apertouLista(){
+        var h6Element = document.createElement('h6');
+        var textElement = document.createTextNode('Matheus');
+        var lista = document.getElementById('lista');
+
+        h6Element.appendChild(textElement);
+        lista.parentNode.appendChild(h6Element);
+        lista.parentNode.removeChild(lista);
+    }
+    function apertouMala(){
+        alert('Clicou na mala!');
+    }
+    function apertouOculos(){
+        var corAtual = document.body.style.backgroundColor;
+
+        if(corAtual == 'red'){
+            document.body.style.backgroundColor = 'white';
+        }else{
+            document.body.style.backgroundColor = 'red';
+        }
+    }
+    function apertouTv(){
+        var tv = document.getElementById('tv');
+        var tvDiv = document.getElementById('tvDiv');
+
+        if(tv.style.display == 'none'){
+            tv.style.display = 'inline';
+            tvDiv.style.display = 'none';
+        }else{
+            tv.style.display = 'none';
+            tvDiv.style.display = 'inline';
+        }
+    }
+ </script>

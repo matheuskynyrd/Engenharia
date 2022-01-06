@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	<title>Atividade Sorteio</title>
+
+	<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">ANDR� FL�VIO CLARIMUNDO RABELO</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:Order msdt:dt="string">2200.00000000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ReferenceId msdt:dt="string"></mso:ReferenceId>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">ANDR� FL�VIO CLARIMUNDO RABELO</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x0101006E26FB3534FD7C4F8241387229261E11</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+	<form>
+		<input type="button" value="Alterar" name=btnOk onclick="numerosAleatorios()">
+	</form>
+	<p id="p">
+	<table border='1'>
+		<tr>
+			<td><img id='img1' src="imagens/frente.jpg" onclick='vira("1")' alt="some text" width=200 height=200></td>
+			<td><img id='img2' src="imagens/frente.jpg" onclick='vira("2")' alt="some text" width=200 height=200></td>
+			<td><img id='img3' src="imagens/frente.jpg" onclick='vira("3")' alt="some text" width=200 height=200></td>
+			<td><img id='img4' src="imagens/frente.jpg" onclick='vira("4")' alt="some text" width=200 height=200></td>
+			<td><img id='img5' src="imagens/frente.jpg" onclick='vira("5")' alt="some text" width=200 height=200></td>
+			<td><img id='img6' src="imagens/frente.jpg" onclick='vira("6")' alt="some text" width=200 height=200></td>
+		</tr>
+		<tr>
+			<td><img id='img7' src="imagens/frente.jpg" onclick='vira("7")' alt="some text" width=200 height=200></td>
+			<td><img id='img8' src="imagens/frente.jpg" onclick='vira("8")' alt="some text" width=200 height=200></td>
+			<td><img id='img9' src="imagens/frente.jpg" onclick='vira("9")' alt="some text" width=200 height=200></td>
+			<td><img id='img10' src="imagens/frente.jpg" onclick='vira("10")' alt="some text" width=200 height=200></td>
+			<td><img id='img11' src="imagens/frente.jpg" onclick='vira("11")' alt="some text" width=200 height=200></td>
+			<td><img id='img12' src="imagens/frente.jpg" onclick='vira("12")' alt="some text" width=200 height=200></td>
+		</tr>
+		<tr>
+			<td><img id='img13' src="imagens/frente.jpg" onclick='vira("13")' alt="some text" width=200 height=200></td>
+			<td><img id='img14' src="imagens/frente.jpg" onclick='vira("14")' alt="some text" width=200 height=200></td>
+			<td><img id='img15' src="imagens/frente.jpg" onclick='vira("15")' alt="some text" width=200 height=200></td>
+			<td><img id='img16' src="imagens/frente.jpg" onclick='vira("16")' alt="some text" width=200 height=200></td>
+			<td><img id='img17' src="imagens/frente.jpg" onclick='vira("17")' alt="some text" width=200 height=200></td>
+			<td><img id='img18' src="imagens/frente.jpg" onclick='vira("18")' alt="some text" width=200 height=200></td>
+		</tr>
+		<tr>
+			<td><img id='img19' src="imagens/frente.jpg" onclick='vira("19")' alt="some text" width=200 height=200></td>
+			<td><img id='img20' src="imagens/frente.jpg" onclick='vira("20")' alt="some text" width=200 height=200></td>
+			<td><img id='img21' src="imagens/frente.jpg" onclick='vira("21")' alt="some text" width=200 height=200></td>
+			<td><img id='img22' src="imagens/frente.jpg" onclick='vira("22")' alt="some text" width=200 height=200></td>
+			<td><img id='img23' src="imagens/frente.jpg" onclick='vira("23")' alt="some text" width=200 height=200></td>
+			<td><img id='img24' src="imagens/frente.jpg" onclick='vira("24")' alt="some text" width=200 height=200></td>
+		</tr>
+	</table>
+	</p>
+	<script type="text/javascript">
+		var sorteio = [];
+		var atual = null;
+		var idAtual = null;
+		var anterior = null;
+		var idAnterior = null;
+
+		function numerosAleatorios() {
+			
+			while (sorteio.length < 24) {
+				var aleatorio = Math.floor(Math.random() * 24);
+				if (sorteio.indexOf(aleatorio) == -1) {
+					sorteio.push(aleatorio);
+				}
+			}
+		}
+		numerosAleatorios()
+		function alterarImagem(id, caminho) {
+			document.getElementById(id).src = caminho;
+		}
+		function vira(id){
+			idAtual = 'img'+(id);
+			atual = (sorteio[id-1]+1);
+
+			document.getElementById(idAtual).src = 'imagens/'+(sorteio[id-1]+1)+'.jpg';
+			verifica(idAtual,atual);
+			
+		}
+		function verifica(idAtual,atual){
+			if(anterior == null){
+				anterior = atual;
+				idAnterior = idAtual;
+				atual = null;
+				idAtual = null;
+			}else{
+				switch(atual) {
+					case 1:
+						if(anterior == 2){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 2: 
+						if(anterior == 1){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 3: 
+						if(anterior == 4){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 4: 
+						if(anterior == 3){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 5: 
+						if(anterior == 6){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 6: 
+						if(anterior == 5){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 7: 
+						if(anterior == 8){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 8: 
+						if(anterior == 7){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 9: 
+						if(anterior == 10){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 10: 
+						if(anterior == 9){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 11: 
+						if(anterior == 12){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 12: 
+						if(anterior == 11){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 13: 
+						if(anterior == 14){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 14: 
+						if(anterior == 13){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 15: 
+						if(anterior == 16){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 16: 
+						if(anterior == 15){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 17: 
+						if(anterior == 18){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 18: 
+						if(anterior == 17){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 19: 
+						if(anterior == 20){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 20: 
+						if(anterior == 19){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 21: 
+						if(anterior == 22){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 22: 
+						if(anterior == 21){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 23: 
+						if(anterior == 24){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+					case 24: 
+						if(anterior == 23){
+							alert('Parabens');
+							anterior = null;
+							atual = null;
+							idAnterior = null;
+							idAtual = null;
+						}else{
+							alert('Errado');
+							document.getElementById(idAtual).src = 'imagens/frente.jpg';
+							document.getElementById(idAnterior).src = 'imagens/frente.jpg';
+							anterior = null;
+							idAnterior = null;
+						}
+						break;
+				}
+			}
+		}
+		
+	</script>
+
+</body>
+
+</html>

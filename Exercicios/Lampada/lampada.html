@@ -1,0 +1,24 @@
+<!--
+    Através da manipulação de eventos. Realize a seguinte ação nas imagens em anexo:
+
+    Mostrar Lâmpada Apagada >> Se o usuário clicar Mostrar Lâmpada Acesa >> Se o usuário clicar Mostrar Lâmpada Quebrada.
+-->
+<div>
+    <img id='lampada' src='apagada.jpg' alt='apagada' onclick="alteraLamapada()">
+</div>
+
+<script>
+    function alteraLamapada(){
+        var lampada = document.getElementById('lampada');
+        if(lampada.alt == 'apagada'){
+            lampada.alt = 'acesa';
+            lampada.src = 'acesa.jpg';
+        }else{
+            if(lampada.alt == 'acesa'){
+                lampada.alt = 'quebrada';
+                lampada.src = 'quebrada.jpg';
+            }
+        }
+        
+    }
+</script>

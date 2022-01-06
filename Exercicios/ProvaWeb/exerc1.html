@@ -1,0 +1,19 @@
+<!--
+    1 - O trecho de código abaixo em HTML chama uma função que será executada toda vez que o usuário clicar no botão Ativar. 
+    Esta função altera o valor inserido no txtCurso para “Tirei total”. 
+    Desenvolva a função JavaScript para a tarefa listada. 
+-->
+
+<form name="cadastro">
+
+    <input type="text"value="Prova PPI" id='txtCurso' name='txtCurso' size="40">
+ 
+    <input type="button" value="Ativar"name=btnOk onclick="alterar()">  
+ </form>
+
+ <script>
+     function alterar(){
+         var novoValor = 'Tirei total';
+         document.getElementById('txtCurso').value = novoValor;
+     }
+ </script>

@@ -1,0 +1,49 @@
+<!--
+    3 - Crie uma página HTML que utilize CSS e JavaScript, para a seguinte tarefa: 
+    Ao entrar na página o navegador deverá pedir ao usuário para informar o nome de uma das cores listadas abaixo:
+ 
+
+    AZUL - #0000FF
+    VERDE - #00FF00
+    VERMELHO - #FF0000
+
+    Em seguida insira o valor hexadecimal equivalente a cor escolhida no fundo do corpo da página 
+    com uma mensagem em qualquer cor não escolhida dizendo: “Bem Vindo a Prova de PPI”. 
+    Dica : Você pode usar aqui o prompt do java script. Ex.: var a = prompt("Informe uma cor")
+-->
+<style>
+    body{
+        background-color: white;
+    }
+</style>
+
+<body>
+    <h1>Bem Vindo a Prova de PPI</h1>
+</body>
+
+
+
+<script>
+    var a = prompt("Informe uma cor");
+    var cor = '';
+    switch (a.toUpperCase()) {
+        case 'AZUL':
+            cor = '#0000FF';
+            console.log('Azul');
+            break;
+        case 'VERDE':
+            cor = '#00FF00';
+            console.log('Verde');
+            break;
+        case 'VERMELHO':
+            cor = '#FF0000';
+            console.log('Vermelho');
+            break;
+        default:
+            console.log('Não Foi Selecionada uma Cor Valida');
+    }
+
+    if(cor != ''){
+        document.body.style.backgroundColor = cor;
+    }
+</script>
